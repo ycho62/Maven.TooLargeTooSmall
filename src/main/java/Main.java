@@ -37,6 +37,8 @@ public class Main {
         int max = 5;
         int mysteryNum = ThreadLocalRandom.current().nextInt(min, max);
         String response = "Your guess was too %s.";
+
+        // TODO - This print statement is for testing purposes; this should be removed in production
         println("The mystery value is secretly " + mysteryNum);
 
         int numberOfGuesses = 0;
@@ -47,7 +49,7 @@ public class Main {
             println("\n\nAttempt to guess the mystery number.");
             printlnf("The value is between %s and %s inclusively.", min, max);
 
-            currentGuess = getIntegerInput("Enter your guess >> ");
+            currentGuess = getIntegerInput("Enter your guess:");
             boolean consecutiveGuess = (prevGuess == currentGuess);
             boolean tooHigh = currentGuess > mysteryNum;
             boolean tooLow = currentGuess < mysteryNum;
@@ -60,6 +62,6 @@ public class Main {
             }
         } while(currentGuess != mysteryNum);
         println("You have guessed the correct value!");
-        println("Number of guesses >> " + numberOfGuesses);
+        println("Number of guesses: " + numberOfGuesses);
     }
 }
